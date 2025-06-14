@@ -1,0 +1,60 @@
+{
+  "homework": [
+    {
+      "id": 1,
+      "enrollmentId": 2,
+      "lessonId": 1,
+      "courseId": 1,
+      "studentId": 2,
+      "githubLink": "https://github.com/janesmith/lesson1-homework",
+      "submittedAt": "2024-01-20T10:30:00Z",
+      "grade": 85,
+      "feedback": "Good work! Consider adding more comments to your code.",
+      "status": "graded",
+      "gradedBy": "teacher1",
+      "gradedAt": "2024-01-22T14:15:00Z"
+    },
+    {
+      "id": 2,
+      "enrollmentId": 2,
+      "lessonId": 2,
+      "courseId": 1,
+      "studentId": 2,
+      "githubLink": "https://github.com/janesmith/todo-app",
+      "submittedAt": "2024-01-25T16:45:00Z",
+      "grade": 92,
+      "feedback": "Excellent implementation! Great use of state management and clean code structure.",
+      "status": "graded",
+      "gradedBy": "teacher1",
+      "gradedAt": "2024-01-27T09:30:00Z"
+    },
+    {
+      "id": 3,
+      "enrollmentId": 1,
+      "lessonId": 1,
+      "courseId": 1,
+      "studentId": 1,
+      "githubLink": "https://github.com/johndoe/react-basics",
+      "submittedAt": "2024-01-21T11:20:00Z",
+      "grade": null,
+      "feedback": null,
+      "status": "submitted",
+      "gradedBy": null,
+      "gradedAt": null
+    },
+    {
+      "enrollmentId": 9,
+      "lessonId": 4,
+      "courseId": 19,
+      "studentId": 6,
+      "githubLink": "https://github.com/Farukh-Ibragimov/frontend_mnth2",
+      "submittedAt": "2025-06-13T17:10:27.753Z",
+      "grade": 10,
+      "feedback": "мыв",
+      "status": "graded",
+      "gradedBy": "Aalam",
+      "gradedAt": "2025-06-13T17:10:49.401Z",
+      "id": 4
+    }
+  ]
+}

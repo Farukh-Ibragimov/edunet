@@ -1,0 +1,22 @@
+{
+  "favorites": [
+    {
+      "userId": 6,
+      "courseId": 2,
+      "addedAt": "2025-06-14T19:13:02.594Z",
+      "id": 1
+    },
+    {
+      "userId": 6,
+      "courseId": 1,
+      "addedAt": "2025-06-14T19:13:03.895Z",
+      "id": 2
+    },
+    {
+      "userId": 6,
+      "courseId": 4,
+      "addedAt": "2025-06-14T19:13:05.515Z",
+      "id": 3
+    }
+  ]
+}

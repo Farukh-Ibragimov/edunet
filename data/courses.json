@@ -1,0 +1,573 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "React Fundamentals",
+      "description": "Learn the basics of React development with hands-on projects",
+      "teacher": "Teacher One",
+      "category": "Technology",
+      "price": 99,
+      "duration": "8 weeks",
+      "startDate": "2024-01-15",
+      "endDate": "2024-03-15",
+      "rating": 4.8,
+      "reviews": 156,
+      "students": 1200,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Introduction to React",
+          "duration": "45 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Components and Props",
+          "duration": "60 minutes",
+          "completed": false
+        },
+        {
+          "id": 3,
+          "title": "State and Lifecycle",
+          "duration": "75 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Advanced JavaScript",
+      "description": "Master advanced JavaScript concepts and modern ES6+ features",
+      "teacher": "Teacher One",
+      "category": "Technology",
+      "price": 129,
+      "duration": "10 weeks",
+      "startDate": "2024-02-01",
+      "endDate": "2024-04-15",
+      "rating": 4.9,
+      "reviews": 89,
+      "students": 750,
+      "level": "Intermediate",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "ES6+ Features",
+          "duration": "60 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Async Programming",
+          "duration": "90 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-15T00:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "UI/UX Design Principles",
+      "description": "Learn the fundamentals of user interface and user experience design",
+      "teacher": "Teacher One",
+      "category": "Design",
+      "price": 149,
+      "duration": "12 weeks",
+      "startDate": "2024-03-01",
+      "endDate": "2024-05-15",
+      "rating": 4.7,
+      "reviews": 234,
+      "students": 890,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Design Fundamentals",
+          "duration": "45 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "User Research",
+          "duration": "60 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-01T00:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Creative Writing Workshop",
+      "description": "Unlock your creative potential and master the art of storytelling",
+      "teacher": "Lisa Anderson",
+      "category": "Creativity",
+      "price": 39.99,
+      "duration": "6 weeks",
+      "startDate": "2024-02-15",
+      "endDate": "2024-04-01",
+      "rating": 4.5,
+      "reviews": 67,
+      "students": 543,
+      "level": "Beginner",
+      "status": "in-progress",
+      "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Storytelling Basics",
+          "duration": "40 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Character Development",
+          "duration": "55 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "title": "Python Programming",
+      "description": "Learn Python programming from scratch and build real-world applications",
+      "teacher": "Alex Rodriguez",
+      "category": "Technology",
+      "price": 89.99,
+      "duration": "12 weeks",
+      "startDate": "2024-01-10",
+      "endDate": "2024-04-10",
+      "rating": 4.8,
+      "reviews": 198,
+      "students": 1890,
+      "level": "Advanced",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Python Basics",
+          "duration": "60 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Data Structures",
+          "duration": "80 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-18T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "title": "English for IT Professionals",
+      "description": "Master English communication skills for the tech industry",
+      "teacher": "Maria Garcia",
+      "category": "Languages",
+      "price": 45.99,
+      "duration": "8 weeks",
+      "startDate": "2024-02-10",
+      "endDate": "2024-04-10",
+      "rating": 4.4,
+      "reviews": 78,
+      "students": 892,
+      "level": "Intermediate",
+      "status": "in-progress",
+      "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Technical Vocabulary",
+          "duration": "45 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Business Communication",
+          "duration": "60 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "title": "Data Science Fundamentals",
+      "description": "Learn data analysis, visualization, and machine learning basics",
+      "teacher": "Sarah Kim",
+      "category": "Technology",
+      "price": 159.99,
+      "duration": "14 weeks",
+      "startDate": "2024-02-20",
+      "endDate": "2024-05-20",
+      "rating": 4.9,
+      "reviews": 312,
+      "students": 1456,
+      "level": "Advanced",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Data Analysis Basics",
+          "duration": "70 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Statistical Methods",
+          "duration": "85 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-25T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "title": "Spanish for Beginners",
+      "description": "Start your Spanish learning journey with essential vocabulary and grammar",
+      "teacher": "Carlos Mendez",
+      "category": "Languages",
+      "price": 29.99,
+      "duration": "8 weeks",
+      "startDate": "2024-03-01",
+      "endDate": "2024-04-30",
+      "rating": 4.6,
+      "reviews": 145,
+      "students": 678,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Basic Greetings",
+          "duration": "40 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Numbers and Colors",
+          "duration": "45 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-01-30T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "title": "Photography Masterclass",
+      "description": "Capture stunning photos with professional techniques and equipment",
+      "teacher": "Emma Thompson",
+      "category": "Creativity",
+      "price": 79.99,
+      "duration": "10 weeks",
+      "startDate": "2024-02-25",
+      "endDate": "2024-05-05",
+      "rating": 4.7,
+      "reviews": 223,
+      "students": 456,
+      "level": "Intermediate",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Camera Basics",
+          "duration": "50 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Composition Rules",
+          "duration": "55 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-05T00:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "title": "Business Strategy",
+      "description": "Develop strategic thinking and business planning skills",
+      "teacher": "Robert Chen",
+      "category": "Business",
+      "price": 199.99,
+      "duration": "12 weeks",
+      "startDate": "2024-03-10",
+      "endDate": "2024-06-02",
+      "rating": 4.8,
+      "reviews": 178,
+      "students": 234,
+      "level": "Advanced",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Strategic Planning",
+          "duration": "75 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Market Analysis",
+          "duration": "80 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-10T00:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "title": "Cooking Basics",
+      "description": "Learn essential cooking techniques and recipes for everyday meals",
+      "teacher": "Chef Michael",
+      "category": "Lifestyle",
+      "price": 49.99,
+      "duration": "6 weeks",
+      "startDate": "2024-03-15",
+      "endDate": "2024-04-30",
+      "rating": 4.5,
+      "reviews": 89,
+      "students": 345,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Kitchen Safety",
+          "duration": "35 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Basic Techniques",
+          "duration": "50 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-12T00:00:00.000Z"
+    },
+    {
+      "id": 13,
+      "title": "Web Development Bootcamp",
+      "description": "Complete web development course from HTML to advanced JavaScript",
+      "teacher": "David Wilson",
+      "category": "Technology",
+      "price": 179.99,
+      "duration": "16 weeks",
+      "startDate": "2024-03-01",
+      "endDate": "2024-06-15",
+      "rating": 4.9,
+      "reviews": 445,
+      "students": 1234,
+      "level": "Intermediate",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "HTML & CSS Basics",
+          "duration": "50 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Responsive Design",
+          "duration": "60 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "title": "Entrepreneurship Bootcamp",
+      "description": "Launch your own business with proven strategies and techniques",
+      "teacher": "Michael Johnson",
+      "category": "Business",
+      "price": 120.99,
+      "duration": "12 weeks",
+      "startDate": "2024-02-01",
+      "endDate": "2024-05-01",
+      "rating": 4.7,
+      "reviews": 156,
+      "students": 345,
+      "level": "Advanced",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Business Planning",
+          "duration": "70 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Market Research",
+          "duration": "65 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-20T00:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "title": "Digital Art & Illustration",
+      "description": "Create stunning digital artwork with modern tools and techniques",
+      "teacher": "Emily Chen",
+      "category": "Creativity",
+      "price": 80.99,
+      "duration": "10 weeks",
+      "startDate": "2024-03-20",
+      "endDate": "2024-05-30",
+      "rating": 4.5,
+      "reviews": 98,
+      "students": 234,
+      "level": "Intermediate",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Digital Tools",
+          "duration": "45 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Color & Composition",
+          "duration": "55 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-02-25T00:00:00.000Z"
+    },
+    {
+      "id": 16,
+      "title": "Cybersecurity Fundamentals",
+      "description": "Learn essential cybersecurity skills to protect digital assets",
+      "teacher": "David Park",
+      "category": "Technology",
+      "price": 110.99,
+      "duration": "10 weeks",
+      "startDate": "2024-02-10",
+      "endDate": "2024-04-20",
+      "rating": 4.8,
+      "reviews": 178,
+      "students": 567,
+      "level": "Advanced",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Security Basics",
+          "duration": "60 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Threat Analysis",
+          "duration": "70 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-03-01T00:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "title": "French for Travelers",
+      "description": "Master essential French phrases for your next trip abroad",
+      "teacher": "Sophie Martin",
+      "category": "Languages",
+      "price": 35.99,
+      "duration": "6 weeks",
+      "startDate": "2024-03-15",
+      "endDate": "2024-04-30",
+      "rating": 4.3,
+      "reviews": 67,
+      "students": 234,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Basic Greetings",
+          "duration": "35 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Travel Phrases",
+          "duration": "45 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-03-05T00:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "title": "Plumbing & Electrical Basics",
+      "description": "Learn essential home maintenance and repair skills",
+      "teacher": "James Wilson",
+      "category": "Professions",
+      "price": 90.99,
+      "duration": "8 weeks",
+      "startDate": "2024-03-01",
+      "endDate": "2024-05-01",
+      "rating": 4.4,
+      "reviews": 89,
+      "students": 123,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=250&fit=crop",
+      "lessons": [
+        {
+          "id": 1,
+          "title": "Safety First",
+          "duration": "50 minutes",
+          "completed": false
+        },
+        {
+          "id": 2,
+          "title": "Basic Repairs",
+          "duration": "60 minutes",
+          "completed": false
+        }
+      ],
+      "createdAt": "2024-03-10T00:00:00.000Z"
+    },
+    {
+      "id": 19,
+      "title": "Design",
+      "description": "Design",
+      "teacher": "Aalam",
+      "category": "Design",
+      "price": 200,
+      "duration": "12 weeks",
+      "startDate": "2025-06-13",
+      "endDate": "2025-08-12",
+      "rating": 0,
+      "reviews": 0,
+      "students": 0,
+      "level": "Beginner",
+      "status": "not-started",
+      "image": "data:image/png;base64,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",
+      "lessons": [],
+      "createdAt": "2025-06-13T11:41:50.451Z"
+    }
+  ]
+}

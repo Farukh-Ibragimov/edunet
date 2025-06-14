@@ -1,0 +1,76 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "Introduction to React",
+      "description": "Learn the basics of React and component-based development",
+      "videoUrl": "https://www.youtube.com/watch?v=dGcsHMXbSOA",
+      "duration": "45 minutes",
+      "order": 1,
+      "month": "January",
+      "year": 2024,
+      "createdAt": "2024-01-15",
+      "homeworkDescription": "Create a simple React component that displays your name and a counter button",
+      "homeworkRequirements": [
+        "Use functional components",
+        "Implement useState hook",
+        "Add basic styling with CSS"
+      ]
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "title": "Props and State Management",
+      "description": "Understanding props, state, and component communication",
+      "videoUrl": "https://www.youtube.com/watch?v=DLX62G4lc44",
+      "duration": "60 minutes",
+      "order": 2,
+      "month": "January",
+      "year": 2024,
+      "createdAt": "2024-01-20",
+      "homeworkDescription": "Build a todo list application with add, delete, and toggle functionality",
+      "homeworkRequirements": [
+        "Use props to pass data between components",
+        "Implement state management for todos",
+        "Add form validation"
+      ]
+    },
+    {
+      "id": 3,
+      "courseId": 1,
+      "title": "React Hooks Deep Dive",
+      "description": "Master useEffect, useContext, and custom hooks",
+      "videoUrl": "https://www.youtube.com/watch?v=dpw9EHDh2bM",
+      "duration": "75 minutes",
+      "order": 3,
+      "month": "February",
+      "year": 2024,
+      "createdAt": "2024-02-01",
+      "homeworkDescription": "Create a custom hook for API calls and implement a data fetching component",
+      "homeworkRequirements": [
+        "Create a custom useApi hook",
+        "Handle loading and error states",
+        "Implement proper cleanup in useEffect"
+      ]
+    },
+    {
+      "courseId": 19,
+      "title": "Design basics",
+      "description": "figma",
+      "videoUrl": "https://www.youtube.com/watch?v=RCJzTnDHASM",
+      "broadcastUrl": "",
+      "duration": "12 minutes",
+      "scheduledDate": "",
+      "scheduledTime": "",
+      "homeworkDescription": "make page on figma",
+      "homeworkRequirements": [],
+      "lessonType": "recorded",
+      "order": 1,
+      "month": "June",
+      "year": 2025,
+      "createdAt": "2025-06-14T18:45:26.901Z",
+      "id": 4
+    }
+  ]
+}

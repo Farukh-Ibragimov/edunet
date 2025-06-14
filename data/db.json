@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "name": "Фарух",
+      "email": "farukh31082005@gmail.com",
+      "password": "$2a$10$bLzQvqBFzjZ5E/TOfKtBqufWsh0zjXeWo2md200Vwah6NIMqb8VZy",
+      "role": "student",
+      "createdAt": "2025-06-12T14:24:21.977Z",
+      "id": 1
+    },
+    {
+      "name": "Aalam",
+      "email": "attokurov090506@gmail.com",
+      "password": "$2a$10$9m3kO2TQVIDo7R.hbdirZ.DVSl7GIxYEAjwO4spCDv/iVjBkd5ECq",
+      "role": "teacher",
+      "createdAt": "2025-06-12T15:35:12.247Z",
+      "id": 2
+    }
+  ],
+  "favorites": [
+    {
+      "userId": 1,
+      "courseId": 2,
+      "addedAt": "2025-06-12T15:33:26.226Z",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "courseId": 1,
+      "addedAt": "2025-06-12T15:33:27.238Z",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "courseId": 18,
+      "addedAt": "2025-06-13T09:11:28.169Z",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "courseId": 19,
+      "addedAt": "2025-06-13T09:11:29.279Z",
+      "id": 4
+    }
+  ],
+  "enrollments": [
+    {
+      "userId": 1,
+      "courseId": 1,
+      "enrolledAt": "2025-06-12T14:25:05.769Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "courseId": 10,
+      "enrolledAt": "2025-06-13T08:53:12.852Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "courseId": 2,
+      "enrolledAt": "2025-06-13T08:53:16.924Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "courseId": 3,
+      "enrolledAt": "2025-06-13T09:06:41.289Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "courseId": 4,
+      "enrolledAt": "2025-06-13T10:19:03.015Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 5
+    }
+  ]
+}

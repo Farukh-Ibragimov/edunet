@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "password123",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      "id": 3,
+      "name": "Teacher One",
+      "email": "teacher1@example.com",
+      "password": "password123",
+      "role": "teacher",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+    },
+    {
+      "name": "Фарух",
+      "email": "faruh31082005@gmail.com",
+      "password": "$2a$10$rRvGL7nO.suSe9DG0G7ULeS8NQ3Y2UHW8MZOkB49NMhQoTpc5dGP2",
+      "role": "student",
+      "createdAt": "2025-06-13T11:38:55.790Z",
+      "id": 5
+    },
+    {
+      "name": "Aalam",
+      "email": "farukh31082005@gmail.com",
+      "password": "$2a$10$vhhr67cTG2dPUNyJ6v0pK.0WEp.1/d1okW5yA3p1GXvwEveNEgJjO",
+      "role": "teacher",
+      "createdAt": "2025-06-13T11:41:05.862Z",
+      "id": 6
+    }
+  ]
+}

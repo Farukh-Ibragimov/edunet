@@ -1,0 +1,107 @@
+{
+  "enrollments": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "studentId": 1,
+      "fullName": "John Doe",
+      "phoneNumber": "+1234567890",
+      "enrollmentDate": "2024-01-15",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": []
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "studentId": 2,
+      "fullName": "Jane Smith",
+      "phoneNumber": "+1987654321",
+      "enrollmentDate": "2024-01-16",
+      "status": "active",
+      "progress": 25,
+      "completedLessons": [
+        1,
+        2
+      ],
+      "homeworkSubmissions": [
+        {
+          "lessonId": 1,
+          "githubLink": "https://github.com/janesmith/lesson1-homework",
+          "submittedAt": "2024-01-20",
+          "grade": 85,
+          "feedback": "Good work! Consider adding more comments to your code."
+        }
+      ]
+    },
+    {
+      "userId": 4,
+      "courseId": 2,
+      "enrolledAt": "2025-06-13T11:22:36.472Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 3
+    },
+    {
+      "userId": 5,
+      "courseId": 1,
+      "enrolledAt": "2025-06-13T11:48:25.519Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "courseId": 19,
+      "enrolledAt": "2025-06-13T11:48:31.404Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 5
+    },
+    {
+      "id": 6,
+      "courseId": 19,
+      "studentId": 5,
+      "fullName": "Farukh Ibragimov",
+      "phoneNumber": "+996553310805",
+      "enrollmentDate": "2025-06-13",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": []
+    },
+    {
+      "id": 7,
+      "courseId": 1,
+      "studentId": 5,
+      "fullName": "Farukh Ibragimov",
+      "phoneNumber": "+996553310805",
+      "enrollmentDate": "2025-06-13",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": []
+    },
+    {
+      "userId": 6,
+      "courseId": 19,
+      "enrolledAt": "2025-06-13T16:37:52.606Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 8
+    },
+    {
+      "id": 9,
+      "courseId": 19,
+      "studentId": 6,
+      "fullName": "Farukh Ibragimov",
+      "phoneNumber": "+996553310805",
+      "enrollmentDate": "2025-06-13",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": []
+    }
+  ]
+}
