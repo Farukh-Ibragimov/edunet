@@ -1,0 +1,43 @@
+{
+  "courseApplications": [
+    {
+      "id": 1,
+      "courseId": 19,
+      "studentId": 5,
+      "studentName": "Farukh Ibragimov",
+      "studentEmail": "farukh31082005@gmail.com",
+      "phoneNumber": "+996553310805",
+      "message": "I'm interested in learning React and would like to join this course.",
+      "status": "pending",
+      "appliedAt": "2024-06-13T10:00:00.000Z",
+      "reviewedAt": null,
+      "teacherResponse": null
+    },
+    {
+      "courseId": 20,
+      "studentId": 6,
+      "studentName": "Aalam",
+      "studentEmail": "farukh31082005@gmail.com",
+      "phoneNumber": "",
+      "message": "cx<csd",
+      "status": "approved",
+      "appliedAt": "2025-06-15T07:28:40.662Z",
+      "reviewedAt": "2025-06-15T07:29:33.473Z",
+      "teacherResponse": "",
+      "id": 2
+    },
+    {
+      "courseId": 20,
+      "studentId": 5,
+      "studentName": "Фарух",
+      "studentEmail": "faruh31082005@gmail.com",
+      "phoneNumber": "",
+      "message": "scscasdc",
+      "status": "approved",
+      "appliedAt": "2025-06-15T07:30:17.986Z",
+      "reviewedAt": "2025-06-15T07:31:05.715Z",
+      "teacherResponse": "",
+      "id": 3
+    }
+  ]
+}

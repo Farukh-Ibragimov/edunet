@@ -154,6 +154,17 @@ const Header = () => {
                             <span>{isTeacher ? 'My Teaching' : 'My Courses'}</span>
                           </button>
                           
+                          {/* Teacher Profile Link (only for teachers) */}
+                          {user.role === 'teacher' && (
+                            <button
+                              onClick={() => handleNavigation('/teacher-profile')}
+                              className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-text-dark text-left"
+                            >
+                              <User className="w-5 h-5" />
+                              <span>Teacher Profile</span>
+                            </button>
+                          )}
+                          
                           <button
                             onClick={() => handleNavigation('/profile')}
                             className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors text-text-dark text-left"

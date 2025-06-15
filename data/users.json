@@ -39,6 +39,14 @@
       "role": "teacher",
       "createdAt": "2025-06-13T11:41:05.862Z",
       "id": 6
+    },
+    {
+      "name": "Kanat",
+      "email": "attokurov090506@gmail.com",
+      "password": "$2a$10$X3nRbEAxkK5NCluUpAILu.9kHRF/8d4.CbzD0Lc2H9ZlWoI9aEnjm",
+      "role": "student",
+      "createdAt": "2025-06-15T07:31:52.802Z",
+      "id": 7
     }
   ]
 }

@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { useJsonAuth } from '../context/JsonAuthContext';
 import { useUser } from '../context/UserContext';
+import CourseFeedback from '../components/CourseFeedback';
+import CourseReviews from '../components/CourseReviews';
 
 const StudentCoursePage = () => {
   const { id } = useParams();
@@ -293,6 +295,14 @@ const StudentCoursePage = () => {
           </div>
         </div>
       </div>
+
+      {/* Feedback and Reviews Section (only for students) */}
+      {!isTeacher && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <CourseFeedback courseId={course.id} />
+          <CourseReviews courseId={course.id} />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content - Video Player */}

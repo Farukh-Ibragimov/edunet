@@ -12,6 +12,8 @@ import MyCoursesPage from './pages/MyCoursesPage';
 import MyCoursePage from './pages/MyCoursePage';
 import StudentCoursePage from './pages/StudentCoursePage';
 import TeacherCoursePage from './pages/TeacherCoursePage';
+import TeacherProfilePage from './pages/TeacherProfilePage';
+import TeacherViewPage from './pages/TeacherViewPage';
 import CourseInformationPage from './pages/CourseInformationPage';
 import CourseEditPage from './pages/CourseEditPage';
 import RegistrationPage from './pages/RegistrationPage';
@@ -31,6 +33,8 @@ function App() {
                   <Route path="/" element={<MainPage />} />
                   <Route path="/search" element={<SearchPage />} />
                   <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/teacher-profile" element={<TeacherProfilePage />} />
+                  <Route path="/teacher/:teacherId" element={<TeacherViewPage />} />
                   <Route path="/my-courses" element={<MyCoursesPage />} />
                   <Route path="/my-course/:id" element={<MyCoursePage />} />
                   <Route path="/student-course/:id" element={<StudentCoursePage />} />

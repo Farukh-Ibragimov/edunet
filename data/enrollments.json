@@ -102,6 +102,62 @@
       "progress": 0,
       "completedLessons": [],
       "homeworkSubmissions": []
+    },
+    {
+      "userId": 6,
+      "courseId": 20,
+      "enrolledAt": "2025-06-15T07:28:30.005Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 10
+    },
+    {
+      "courseId": 20,
+      "studentId": 6,
+      "fullName": "Aalam",
+      "phoneNumber": "",
+      "enrollmentDate": "2025-06-15",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": [],
+      "id": 11
+    },
+    {
+      "userId": 5,
+      "courseId": 20,
+      "enrolledAt": "2025-06-15T07:30:12.163Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 12
+    },
+    {
+      "courseId": 20,
+      "studentId": 5,
+      "fullName": "Фарух",
+      "phoneNumber": "",
+      "enrollmentDate": "2025-06-15",
+      "status": "active",
+      "progress": 0,
+      "completedLessons": [],
+      "homeworkSubmissions": [],
+      "id": 13
+    },
+    {
+      "userId": 7,
+      "courseId": 20,
+      "enrolledAt": "2025-06-15T07:32:27.306Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 14
+    },
+    {
+      "userId": 6,
+      "courseId": 2,
+      "enrolledAt": "2025-06-15T08:05:16.211Z",
+      "progress": 0,
+      "completedLessons": [],
+      "id": 15
     }
   ]
 }

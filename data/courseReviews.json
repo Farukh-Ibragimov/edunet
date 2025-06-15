@@ -1,0 +1,54 @@
+{
+  "courseReviews": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "studentId": 1,
+      "studentName": "John Doe",
+      "rating": 5,
+      "review": "Excellent course! The instructor explains complex concepts in a very clear way. Highly recommended for beginners.",
+      "createdAt": "2024-01-25T14:30:00Z",
+      "updatedAt": "2024-01-25T14:30:00Z"
+    },
+    {
+      "id": 2,
+      "courseId": 1,
+      "studentId": 3,
+      "studentName": "Фарух",
+      "rating": 4,
+      "review": "Great course overall. The practical exercises really help reinforce the concepts. Would have liked more advanced topics.",
+      "createdAt": "2024-01-28T10:15:00Z",
+      "updatedAt": "2024-01-28T10:15:00Z"
+    },
+    {
+      "id": 3,
+      "courseId": 2,
+      "studentId": 1,
+      "studentName": "John Doe",
+      "rating": 5,
+      "review": "Amazing advanced JavaScript course! The ES6+ features are explained perfectly.",
+      "createdAt": "2024-02-01T16:45:00Z",
+      "updatedAt": "2024-02-01T16:45:00Z"
+    },
+    {
+      "courseId": 19,
+      "studentId": 6,
+      "studentName": "Aalam",
+      "rating": 5,
+      "review": "good teacher",
+      "createdAt": "2025-06-14T21:01:59.545Z",
+      "updatedAt": "2025-06-14T21:01:59.545Z",
+      "id": 4
+    },
+    {
+      "courseId": 1,
+      "studentId": 5,
+      "studentName": "Фарух",
+      "rating": 5,
+      "review": "лдтлдтлдтлд",
+      "createdAt": "2025-06-15T07:13:14.381Z",
+      "updatedAt": "2025-06-15T07:13:14.381Z",
+      "id": 5
+    }
+  ]
+}

@@ -29,11 +29,13 @@ const CourseEditPage = () => {
         description: '',
         price: 0,
         duration: '',
+        maxStudents: null,
         category: 'Technology',
         image: '',
         content: [],
         requirements: [],
-        outcomes: []
+        outcomes: [],
+        qrCode: ''
       });
       setImagePreview('');
     } else {
@@ -52,11 +54,13 @@ const CourseEditPage = () => {
             description: courseData.description,
             price: courseData.price,
             duration: courseData.duration,
+            maxStudents: courseData.maxStudents,
             category: courseData.category,
             image: courseData.image,
             content: courseData.lessons?.map(lesson => lesson.title) || [],
             requirements: [], // Not stored in server format, will be empty
-            outcomes: [] // Not stored in server format, will be empty
+            outcomes: [], // Not stored in server format, will be empty
+            qrCode: courseData.qrCode || ''
           });
           setImagePreview(courseData.image);
         } catch (error) {
@@ -70,32 +74,33 @@ const CourseEditPage = () => {
 
   const addCourseToServer = async (courseData) => {
     try {
-      // Prepare course data for JSON Server
       const newCourse = {
         title: courseData.title,
         description: courseData.description,
-        teacher: user.name, // Add teacher name from current user
+        teacher: user.name,
+        teacherId: user.id,
         category: courseData.category,
         price: courseData.price,
         duration: courseData.duration,
-        startDate: new Date().toISOString().split('T')[0], // Today's date
-        endDate: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 60 days from now
+        maxStudents: courseData.maxStudents || null,
+        startDate: new Date().toISOString().split('T')[0],
+        endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 90 days from now
         rating: 0,
         reviews: 0,
         students: 0,
         level: 'Beginner',
         status: 'not-started',
-        image: courseData.image || 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop',
+        image: courseData.image,
         lessons: courseData.content.map((content, index) => ({
           id: index + 1,
           title: content,
           duration: '45 minutes',
           completed: false
         })),
+        qrCode: courseData.qrCode || '',
         createdAt: new Date().toISOString()
       };
 
-      // Add course to JSON Server
       const addResponse = await fetch('http://localhost:3003/courses', {
         method: 'POST',
         headers: {
@@ -133,13 +138,15 @@ const CourseEditPage = () => {
         category: courseData.category,
         price: courseData.price,
         duration: courseData.duration,
+        maxStudents: courseData.maxStudents || null,
         image: courseData.image,
         lessons: courseData.content.map((content, index) => ({
           id: index + 1,
           title: content,
           duration: '45 minutes',
           completed: false
-        }))
+        })),
+        qrCode: courseData.qrCode || '',
       };
 
       // Update course on JSON Server
@@ -408,7 +415,7 @@ const CourseEditPage = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-text-gray mb-1">Price ($)</label>
                   <input
@@ -432,6 +439,17 @@ const CourseEditPage = () => {
                 </div>
                 
                 <div>
+                  <label className="block text-sm font-medium text-text-gray mb-1">Max Students</label>
+                  <input
+                    type="number"
+                    value={course.maxStudents || ''}
+                    onChange={(e) => setCourse(prev => ({ ...prev, maxStudents: e.target.value ? parseInt(e.target.value) : null }))}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                    placeholder="Leave empty for unlimited"
+                  />
+                </div>
+                
+                <div>
                   <label className="block text-sm font-medium text-text-gray mb-1">Category</label>
                   <select
                     value={course.category}
@@ -442,6 +460,39 @@ const CourseEditPage = () => {
                       <option key={cat} value={cat}>{cat}</option>
                     ))}
                   </select>
+                </div>
+              </div>
+
+              {/* QR Code Upload */}
+              <div className="mt-4">
+                <label className="block text-sm font-medium text-text-gray mb-2">Payment QR Code</label>
+                <div className="space-y-3">
+                  {course.qrCode && (
+                    <div className="relative">
+                      <img 
+                        src={course.qrCode} 
+                        alt="Payment QR Code" 
+                        className="w-32 h-32 object-contain border border-gray-300 rounded-lg"
+                      />
+                      <button
+                        onClick={() => setCourse(prev => ({ ...prev, qrCode: '' }))}
+                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  )}
+                  
+                  <input
+                    type="url"
+                    value={course.qrCode || ''}
+                    onChange={(e) => setCourse(prev => ({ ...prev, qrCode: e.target.value }))}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple"
+                    placeholder="Enter QR code URL (e.g., https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PAYMENT_URL)"
+                  />
+                  <p className="text-xs text-text-gray">
+                    Enter the URL of your payment QR code. You can generate QR codes using services like QR Server or similar.
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { User, Star, Calendar, BookOpen, CheckCircle, PlayCircle, ChevronDown, Award } from 'lucide-react';
+import { User, Star, Calendar, BookOpen, CheckCircle, PlayCircle, ChevronDown, Award, ExternalLink } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import EnrollmentForm from '../components/EnrollmentForm';
+import CourseApplicationForm from '../components/CourseApplicationForm';
+import QRCodePayment from '../components/QRCodePayment';
+import TeacherProfile from '../components/TeacherProfile';
 import { useJsonAuth } from '../context/JsonAuthContext';
 import { useUser } from '../context/UserContext';
 
@@ -15,8 +18,10 @@ const CourseInformationPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showEnrollmentForm, setShowEnrollmentForm] = useState(false);
+  const [showApplicationForm, setShowApplicationForm] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [enrollment, setEnrollment] = useState(null);
+  const [hasApplied, setHasApplied] = useState(false);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -37,22 +42,30 @@ const CourseInformationPage = () => {
   }, [id]);
 
   useEffect(() => {
-    const checkEnrollment = async () => {
+    const checkEnrollmentAndApplication = async () => {
       if (!user || isTeacher) return;
       
       try {
-        const response = await fetch(`http://localhost:3005/enrollments?courseId=${id}&studentId=${user.id}`);
-        const enrollments = await response.json();
+        // Check enrollment
+        const enrollmentResponse = await fetch(`http://localhost:3005/enrollments?courseId=${id}&studentId=${user.id}`);
+        const enrollments = await enrollmentResponse.json();
         if (enrollments.length > 0) {
           setIsEnrolled(true);
           setEnrollment(enrollments[0]);
         }
+
+        // Check application
+        const applicationResponse = await fetch(`http://localhost:3010/courseApplications?courseId=${id}&studentId=${user.id}`);
+        const applications = await applicationResponse.json();
+        if (applications.length > 0) {
+          setHasApplied(true);
+        }
       } catch (error) {
-        console.error('Error checking enrollment:', error);
+        console.error('Error checking enrollment/application:', error);
       }
     };
 
-    checkEnrollment();
+    checkEnrollmentAndApplication();
   }, [user, id, isTeacher]);
 
   const handleEnrollClick = () => {
@@ -72,7 +85,17 @@ const CourseInformationPage = () => {
       return;
     }
 
-    setShowEnrollmentForm(true);
+    if (hasApplied) {
+      alert('You have already applied to this course. Please wait for the instructor to review your application.');
+      return;
+    }
+
+    // Check if course has limited spots
+    if (course.maxStudents) {
+      setShowApplicationForm(true);
+    } else {
+      setShowEnrollmentForm(true);
+    }
   };
 
   const handleEnrollmentSuccess = () => {
@@ -109,7 +132,12 @@ const CourseInformationPage = () => {
           <h1 className="text-2xl font-bold text-text-dark">{course.title}</h1>
           <p className="text-text-gray mb-2">{course.description}</p>
           <div className="flex items-center gap-4 font-semibold">
-            <span className="flex items-center gap-1"><User className="w-4 h-4" /> {course.teacher}</span>
+            <span 
+              className="flex items-center gap-1 hover:text-primary-purple transition-colors cursor-pointer"
+              onClick={() => navigate(`/teacher/${course.teacherId || 1}`)}
+            >
+              <User className="w-4 h-4" /> {course.teacher}
+            </span>
             <StarRating rating={course.rating} reviews={course.reviews} />
           </div>
           <div className="flex items-center gap-4">
@@ -126,13 +154,21 @@ const CourseInformationPage = () => {
                 <CheckCircle className="w-4 h-4" />
                 Continue Learning
               </button>
+            ) : hasApplied ? (
+              <button 
+                className="btn-secondary flex items-center gap-2"
+                disabled
+              >
+                <CheckCircle className="w-4 h-4" />
+                Application Submitted
+              </button>
             ) : (
               <button 
                 onClick={handleEnrollClick}
                 className="btn-primary"
                 disabled={isTeacher}
               >
-                {isTeacher ? 'Teachers cannot enroll' : 'Enroll Now'}
+                {isTeacher ? 'Teachers cannot enroll' : course.maxStudents ? 'Apply for Course' : 'Enroll Now'}
               </button>
             )}
           </div>
@@ -144,8 +180,43 @@ const CourseInformationPage = () => {
               </p>
             </div>
           )}
+          
+          {course.maxStudents && (
+            <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <p className="text-blue-700 text-sm">
+                <strong>Course Capacity:</strong> {course.students}/{course.maxStudents} students enrolled
+                {course.students >= course.maxStudents && (
+                  <span className="ml-2 text-red-600 font-semibold">• Course is full</span>
+                )}
+              </p>
+            </div>
+          )}
         </div>
       </div>
+
+      {/* Teacher Profile Section */}
+      <div className="mb-10">
+        <h2 className="text-xl font-bold mb-4">About the Instructor</h2>
+        <TeacherProfile 
+          teacherId={course.teacherId || 1} 
+          teacherName={course.teacher}
+          compact={false}
+        />
+      </div>
+
+      {/* Payment Section */}
+      {!isTeacher && course.qrCode && (
+        <div className="mb-10">
+          <h2 className="text-xl font-bold mb-4">Payment</h2>
+          <QRCodePayment 
+            course={course}
+            onPaymentComplete={() => {
+              alert('Payment confirmed! You can now apply for the course.');
+            }}
+          />
+        </div>
+      )}
+
       {/* Learn Subjects Block */}
       {course.lessons && (
         <>
@@ -185,6 +256,23 @@ const CourseInformationPage = () => {
           onClose={() => setShowEnrollmentForm(false)}
           onEnrollmentSuccess={handleEnrollmentSuccess}
         />
+      )}
+
+      {/* Application Form Modal */}
+      {showApplicationForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <CourseApplicationForm
+              course={course}
+              onClose={() => setShowApplicationForm(false)}
+              onApplicationSubmitted={() => {
+                setShowApplicationForm(false);
+                setHasApplied(true);
+                alert('Application submitted successfully! The instructor will review your application.');
+              }}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

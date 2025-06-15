@@ -1,0 +1,96 @@
+{
+  "teacherProfiles": [
+    {
+      "id": 1,
+      "teacherId": 2,
+      "teacherName": "Sarah Johnson",
+      "email": "sarah@example.com",
+      "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face",
+      "bio": "Experienced software engineer and educator with over 8 years of experience in web development. Passionate about teaching React, JavaScript, and modern web technologies.",
+      "expertise": [
+        "React",
+        "JavaScript",
+        "Node.js",
+        "Web Development",
+        "UI/UX"
+      ],
+      "experience": "8+ years",
+      "education": "Master's in Computer Science, Stanford University",
+      "certifications": [
+        "AWS Certified Developer",
+        "Google Cloud Professional"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/sarahjohnson",
+        "github": "https://github.com/sarahjohnson",
+        "twitter": "https://twitter.com/sarahjohnson",
+        "website": "https://sarahjohnson.dev"
+      },
+      "coursesTaught": 12,
+      "totalStudents": 2500,
+      "averageRating": 4.8,
+      "totalReviews": 156,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "teacherId": 4,
+      "teacherName": "Фарух",
+      "email": "faruh31082005@gmail.com",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
+      "bio": "Full-stack developer and educator specializing in modern web technologies. Love sharing knowledge and helping students master programming concepts.",
+      "expertise": [
+        "JavaScript",
+        "React",
+        "Python",
+        "Full-Stack Development",
+        "Database Design"
+      ],
+      "experience": "5+ years",
+      "education": "Bachelor's in Computer Science, Technical University",
+      "certifications": [
+        "MongoDB Certified Developer",
+        "React Certification"
+      ],
+      "socialLinks": {
+        "linkedin": "https://linkedin.com/in/farukh",
+        "github": "https://github.com/Farukh-Ibragimov",
+        "twitter": "https://twitter.com/farukh_dev",
+        "website": "https://farukh.dev"
+      },
+      "coursesTaught": 8,
+      "totalStudents": 1200,
+      "averageRating": 4.7,
+      "totalReviews": 89,
+      "createdAt": "2024-01-10T00:00:00Z",
+      "updatedAt": "2024-01-20T14:20:00Z"
+    },
+    {
+      "teacherId": 6,
+      "teacherName": "Aalam",
+      "email": "farukh31082005@gmail.com",
+      "avatar": "",
+      "bio": "вмвыфсмфывсфыв ф ывсфывсфвы мсывсыф фывсфывсвфмывмвыфв мывмсфыя",
+      "expertise": [
+        "JS,React"
+      ],
+      "experience": "5 years",
+      "education": "Master in Computer Sience",
+      "certifications": [],
+      "socialLinks": {
+        "linkedin": "",
+        "github": "",
+        "twitter": "",
+        "website": ""
+      },
+      "coursesTaught": 0,
+      "totalStudents": 0,
+      "averageRating": 0,
+      "totalReviews": 0,
+      "updatedAt": "2025-06-14T21:18:41.433Z",
+      "createdAt": "2025-06-14T21:11:26.151Z",
+      "id": 3
+    }
+  ]
+}

@@ -18,10 +18,14 @@ import {
   AlertCircle,
   Video,
   Link,
-  Radio
+  Radio,
+  FileText,
+  DollarSign
 } from 'lucide-react';
 import { useJsonAuth } from '../context/JsonAuthContext';
 import { useUser } from '../context/UserContext';
+import CourseApplicationsManager from '../components/CourseApplicationsManager';
+import PaymentManager from '../components/PaymentManager';
 
 const TeacherCoursePage = () => {
   const { id } = useParams();
@@ -35,7 +39,7 @@ const TeacherCoursePage = () => {
   const [homework, setHomework] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('students');
+  const [activeTab, setActiveTab] = useState('overview');
   const [showLessonForm, setShowLessonForm] = useState(false);
   const [showGradeForm, setShowGradeForm] = useState(false);
   const [selectedHomework, setSelectedHomework] = useState(null);
@@ -56,6 +60,12 @@ const TeacherCoursePage = () => {
     grade: '',
     feedback: ''
   });
+
+  const tabs = [
+    { id: 'overview', label: 'Overview', icon: BookOpen },
+    { id: 'applications', label: 'Applications', icon: Users },
+    { id: 'payments', label: 'Payments', icon: DollarSign }
+  ];
 
   useEffect(() => {
     if (!isTeacher) {
@@ -377,326 +387,122 @@ const TeacherCoursePage = () => {
       <div className="mb-6">
         <div className="flex border-b">
           <button
-            onClick={() => setActiveTab('students')}
+            onClick={() => setActiveTab('overview')}
             className={`px-4 py-2 font-medium ${
-              activeTab === 'students'
+              activeTab === 'overview'
                 ? 'border-b-2 border-primary-purple text-primary-purple'
                 : 'text-text-gray hover:text-text-dark'
             }`}
           >
             <Users className="w-4 h-4 inline mr-2" />
-            Students ({enrollments.length})
+            Overview
           </button>
           <button
-            onClick={() => setActiveTab('lessons')}
+            onClick={() => setActiveTab('applications')}
             className={`px-4 py-2 font-medium ${
-              activeTab === 'lessons'
+              activeTab === 'applications'
                 ? 'border-b-2 border-primary-purple text-primary-purple'
                 : 'text-text-gray hover:text-text-dark'
             }`}
           >
-            <BookOpen className="w-4 h-4 inline mr-2" />
-            Lessons ({lessons.length})
+            <FileText className="w-4 h-4 inline mr-2" />
+            Applications
           </button>
           <button
-            onClick={() => setActiveTab('homework')}
+            onClick={() => setActiveTab('payments')}
             className={`px-4 py-2 font-medium ${
-              activeTab === 'homework'
+              activeTab === 'payments'
                 ? 'border-b-2 border-primary-purple text-primary-purple'
                 : 'text-text-gray hover:text-text-dark'
             }`}
           >
-            <Star className="w-4 h-4 inline mr-2" />
-            Homework ({homework.filter(h => h.status === 'submitted').length})
+            <DollarSign className="w-4 h-4 inline mr-2" />
+            Payments
           </button>
         </div>
       </div>
 
-      {/* Students Tab */}
-      {activeTab === 'students' && (
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">Enrolled Students</h2>
-          {enrollments.length === 0 ? (
-            <div className="card p-8 text-center">
-              <Users className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No Students Enrolled</h3>
-              <p className="text-text-gray">Students will appear here once they enroll in your course.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {enrollments.map(enrollment => {
-                const studentHomework = getStudentHomework(enrollment.studentId);
-                const completedLessons = enrollment.completedLessons?.length || 0;
-                const totalLessons = lessons.length;
-                const progress = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
-                
-                return (
+      {/* Overview Tab */}
+      {activeTab === 'overview' && (
+        <div className="space-y-6">
+          {/* Enrolled Students */}
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold">Enrolled Students</h2>
+            {enrollments.length === 0 ? (
+              <p className="text-text-gray">No students enrolled yet.</p>
+            ) : (
+              <div className="grid gap-4">
+                {enrollments.map((enrollment) => (
                   <div key={enrollment.id} className="card p-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-primary-purple rounded-full flex items-center justify-center text-white font-semibold">
-                        {(enrollment.fullName || 'U').charAt(0).toUpperCase()}
-                      </div>
+                    <div className="flex justify-between items-center">
                       <div>
-                        <h3 className="font-semibold">{enrollment.fullName || 'Unknown Student'}</h3>
-                        <p className="text-sm text-text-gray">{enrollment.phoneNumber || 'No phone'}</p>
+                        <h3 className="font-semibold">{enrollment.fullName}</h3>
+                        <p className="text-sm text-text-gray">{enrollment.phoneNumber}</p>
                       </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span>Progress</span>
-                        <span>{progress}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-primary-purple h-2 rounded-full"
-                          style={{ width: `${progress}%` }}
-                        ></div>
-                      </div>
-                      
-                      <div className="flex justify-between text-sm">
-                        <span>Lessons Completed</span>
-                        <span>{completedLessons}/{totalLessons}</span>
-                      </div>
-                      
-                      <div className="flex justify-between text-sm">
-                        <span>Homework Submitted</span>
-                        <span>{studentHomework.length}</span>
-                      </div>
-                      
-                      <div className="flex justify-between text-sm">
-                        <span>Average Grade</span>
-                        <span>
-                          {studentHomework.filter(h => h.grade).length > 0
-                            ? Math.round(studentHomework.filter(h => h.grade).reduce((sum, h) => sum + h.grade, 0) / studentHomework.filter(h => h.grade).length)
-                            : 0
-                          }%
-                        </span>
-                      </div>
+                      <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                        Enrolled
+                      </span>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Lessons Tab */}
-      {activeTab === 'lessons' && (
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold">Course Lessons</h2>
-            <button
-              onClick={() => {
-                resetLessonForm();
-                setShowLessonForm(true);
-              }}
-              className="btn-primary flex items-center gap-2"
-            >
-              <Plus className="w-4 h-4" />
-              Add Lesson
-            </button>
+                ))}
+              </div>
+            )}
           </div>
-          
-          {lessons.length === 0 ? (
-            <div className="card p-8 text-center">
-              <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No Lessons Yet</h3>
-              <p className="text-text-gray">Add your first lesson to get started.</p>
+
+          {/* Lessons */}
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold">Lessons</h2>
+              <button
+                onClick={() => setShowLessonForm(true)}
+                className="btn-primary flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                Add Lesson
+              </button>
             </div>
-          ) : (
-            <div className="space-y-4">
-              {lessons.map((lesson, index) => (
-                <div key={lesson.id} className="card p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="w-8 h-8 bg-primary-purple text-white rounded-full flex items-center justify-center font-semibold">
-                        {index + 1}
+            {lessons.length === 0 ? (
+              <p className="text-text-gray">No lessons added yet.</p>
+            ) : (
+              <div className="grid gap-4">
+                {lessons.map((lesson) => (
+                  <div key={lesson.id} className="card p-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="font-semibold">{lesson.title}</h3>
+                        <p className="text-sm text-text-gray">{lesson.description}</p>
                       </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-semibold">{lesson.title}</h3>
-                          {lesson.lessonType === 'live' && (
-                            <span className="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-medium">
-                              Live
-                            </span>
-                          )}
-                          {lesson.lessonType === 'recorded' && (
-                            <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-medium">
-                              Recorded
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-sm text-text-gray mb-2">{lesson.description}</p>
-                        <div className="flex items-center gap-4 text-xs text-text-gray">
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {lesson.duration}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-3 h-3" />
-                            {lesson.month} {lesson.year}
-                          </span>
-                          {lesson.scheduledDate && lesson.scheduledTime && (
-                            <span className="flex items-center gap-1">
-                              <Radio className="w-3 h-3" />
-                              {new Date(lesson.scheduledDate + 'T' + lesson.scheduledTime).toLocaleString()}
-                            </span>
-                          )}
-                        </div>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleEditLesson(lesson)}
+                          className="btn-secondary"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDeleteLesson(lesson.id)}
+                          className="btn-danger"
+                        >
+                          Delete
+                        </button>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      {lesson.videoUrl && (
-                        <a
-                          href={lesson.videoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-secondary text-xs flex items-center gap-1"
-                          title="View Recorded Video"
-                        >
-                          <Video className="w-3 h-3" />
-                          Video
-                        </a>
-                      )}
-                      {lesson.broadcastUrl && (
-                        <a
-                          href={lesson.broadcastUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-secondary text-xs flex items-center gap-1 bg-green-100 text-green-700 hover:bg-green-200"
-                          title="Join Live Broadcast"
-                        >
-                          <Radio className="w-3 h-3" />
-                          Live
-                        </a>
-                      )}
-                      <button
-                        onClick={() => handleEditLesson(lesson)}
-                        className="btn-secondary text-xs flex items-center gap-1"
-                        title="Edit Lesson"
-                      >
-                        <Edit className="w-3 h-3" />
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDeleteLesson(lesson.id)}
-                        className="btn-secondary text-xs flex items-center gap-1 text-red-600 hover:bg-red-50"
-                        title="Delete Lesson"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                        Delete
-                      </button>
                     </div>
                   </div>
-                  
-                  {/* Homework Info */}
-                  {lesson.homeworkDescription && (
-                    <div className="mt-3 pt-3 border-t border-gray-200">
-                      <h4 className="text-sm font-medium text-text-gray mb-1">Homework Assignment</h4>
-                      <p className="text-xs text-text-gray mb-2">{lesson.homeworkDescription}</p>
-                      {lesson.homeworkRequirements && lesson.homeworkRequirements.length > 0 && (
-                        <div>
-                          <h5 className="text-xs font-medium text-text-gray mb-1">Requirements:</h5>
-                          <ul className="text-xs text-text-gray space-y-1">
-                            {lesson.homeworkRequirements.map((req, idx) => (
-                              <li key={idx} className="flex items-start gap-1">
-                                <span className="text-primary-purple">•</span>
-                                {req}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       )}
 
-      {/* Homework Tab */}
-      {activeTab === 'homework' && (
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">Homework Submissions</h2>
-          
-          {homework.length === 0 ? (
-            <div className="card p-8 text-center">
-              <Star className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">No Homework Submissions</h3>
-              <p className="text-text-gray">Homework submissions will appear here once students submit their work.</p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {homework.map(submission => {
-                const student = enrollments.find(e => e.studentId === submission.studentId);
-                const lesson = lessons.find(l => l.id === submission.lessonId);
-                
-                return (
-                  <div key={submission.id} className="card p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <h3 className="font-semibold">{student?.fullName || 'Unknown Student'}</h3>
-                        <p className="text-sm text-text-gray">{lesson?.title || 'Unknown Lesson'}</p>
-                        <p className="text-xs text-text-gray">
-                          Submitted: {new Date(submission.submittedAt).toLocaleDateString()}
-                        </p>
-                      </div>
-                      
-                      <div className="flex items-center gap-2">
-                        {submission.status === 'graded' ? (
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium">Grade: {submission.grade}%</span>
-                            <CheckCircle className="w-4 h-4 text-green-600" />
-                          </div>
-                        ) : (
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm text-yellow-600">Pending</span>
-                            <button
-                              onClick={() => {
-                                setSelectedHomework(submission);
-                                setGradeForm({ grade: '', feedback: '' });
-                                setShowGradeForm(true);
-                              }}
-                              className="btn-primary text-xs"
-                            >
-                              Grade
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <Github className="w-4 h-4" />
-                      <a
-                        href={submission.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary-purple hover:underline flex items-center gap-1"
-                      >
-                        View on GitHub
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                    </div>
-                    
-                    {submission.feedback && (
-                      <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                        <p className="text-sm">
-                          <strong>Feedback:</strong> {submission.feedback}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
+      {/* Applications Tab */}
+      {activeTab === 'applications' && (
+        <CourseApplicationsManager courseId={id} />
+      )}
+
+      {/* Payments Tab */}
+      {activeTab === 'payments' && (
+        <PaymentManager teacherId={user.id} />
       )}
 
       {/* Add Lesson Modal */}

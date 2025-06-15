@@ -358,7 +358,15 @@ const MainPage = () => {
                     
                     <div className="p-4">
                       <h3 className="font-semibold text-text-dark mb-2">{course.title}</h3>
-                      <p className="text-text-gray text-sm mb-3">By {course.teacher}</p>
+                      <p 
+                        className="text-text-gray text-sm mb-3 hover:text-primary-purple transition-colors cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/teacher/${course.teacherId || 1}`);
+                        }}
+                      >
+                        By {course.teacher}
+                      </p>
                       
                       {/* Progress bar for enrolled courses */}
                       {!isTeacher && isEnrolled && enrollment && (

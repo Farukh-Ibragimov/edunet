@@ -1,0 +1,16 @@
+{
+  "payments": [
+    {
+      "id": 1,
+      "courseId": 20,
+      "studentId": 6,
+      "studentName": "Aalam",
+      "amount": 200,
+      "status": "completed",
+      "paymentMethod": "qr_code",
+      "paymentDate": "2025-06-15T07:30:00.000Z",
+      "transactionId": "TXN_001",
+      "notes": "Payment completed via QR code"
+    }
+  ]
+} 
